@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.poli.human_resources_managment_server.db"},{"l":"com.poli.human_resources_managment_server.model"},{"l":"com.poli.human_resources_managment_server.server"},{"l":"com.poli.human_resources_managment_server.server.handlers"}];updateSearchResults();

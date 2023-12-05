@@ -1,0 +1,60 @@
+CREATE TABLE PAISES (
+  pais_ID INT AUTO_INCREMENT PRIMARY KEY,
+  pais_nombre VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE CIUDADES (
+  ciud_ID INT AUTO_INCREMENT PRIMARY KEY,
+  ciud_nombre VARCHAR(255) NOT NULL,
+  ciud_pais_ID INT NOT NULL,
+  FOREIGN KEY (ciud_pais_ID) REFERENCES PAISES(pais_ID)
+);
+
+CREATE TABLE LOCALIZACIONES (
+  localiz_ID INT AUTO_INCREMENT PRIMARY KEY,
+  localiz_direccion VARCHAR(255) NOT NULL,
+  localiz_ciudad_ID INT NOT NULL,
+  FOREIGN KEY (localiz_ciudad_ID) REFERENCES CIUDADES(ciud_ID)
+);
+
+CREATE TABLE DEPARTAMENTOS (
+  dpto_ID INT AUTO_INCREMENT PRIMARY KEY,
+  dpto_nombre VARCHAR(255) NOT NULL,
+  dpto_localiz_ID INT NOT NULL,
+  FOREIGN KEY (dpto_localiz_ID) REFERENCES LOCALIZACIONES(localiz_ID)
+);
+
+CREATE TABLE CARGOS (
+  cargo_ID INT AUTO_INCREMENT PRIMARY KEY,
+  cargo_nombre VARCHAR(255) NOT NULL,
+  cargo_sueldo_minimo DECIMAL(10, 2) NOT NULL,
+  cargo_sueldo_maximo DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE EMPLEADOS (
+  empl_ID INT AUTO_INCREMENT PRIMARY KEY,
+  empl_primer_nombre VARCHAR(255) NOT NULL,
+  empl_segundo_nombre VARCHAR(255),
+  empl_email VARCHAR(255) NOT NULL,
+  empl_fecha_nac DATE NOT NULL,
+  empl_sueldo DECIMAL(10, 2) NOT NULL,
+  empl_comision DECIMAL(10, 2),
+  empl_cargo_ID INT NOT NULL,
+  empl_Gerente_ID INT,
+  empl_dpto_ID INT NOT NULL,
+  empl_retirado BOOLEAN NOT NULL DEFAULT FALSE,
+  FOREIGN KEY (empl_cargo_ID) REFERENCES CARGOS(cargo_ID),
+  FOREIGN KEY (empl_Gerente_ID) REFERENCES EMPLEADOS(empl_ID),
+  FOREIGN KEY (empl_dpto_ID) REFERENCES DEPARTAMENTOS(dpto_ID)
+);
+
+CREATE TABLE HISTORICO (
+  emphist_ID INT AUTO_INCREMENT PRIMARY KEY,
+  emphist_fecha_retiro DATE NOT NULL,
+  emphist_cargo_ID INT NOT NULL,
+  emphist_empl_ID INT NOT NULL,
+  emphist_dpto_ID INT NOT NULL,
+  FOREIGN KEY (emphist_cargo_ID) REFERENCES CARGOS(cargo_ID),
+  FOREIGN KEY (emphist_empl_ID) REFERENCES EMPLEADOS(empl_ID),
+  FOREIGN KEY (emphist_dpto_ID) REFERENCES DEPARTAMENTOS(dpto_ID)
+);

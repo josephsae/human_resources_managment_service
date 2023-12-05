@@ -1,0 +1,26 @@
+-classpath
+'C:/Users/Joseph/.m2/repository/mysql/mysql-connector-java/8.0.23/mysql-connector-java-8.0.23.jar;C:/Users/Joseph/.m2/repository/com/google/protobuf/protobuf-java/3.11.4/protobuf-java-3.11.4.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'C:/Users/Joseph/eclipse-workspace/human_resources_managment_server/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Joseph/eclipse-workspace/human_resources_managment_server/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'human_resources_managment_server 0.0.1-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' 'C:/Users/Joseph/eclipse-workspace/human_resources_managment_server/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'human_resources_managment_server 0.0.1-SNAPSHOT API'
